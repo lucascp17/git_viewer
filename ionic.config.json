@@ -1,0 +1,8 @@
+{
+  "name": "git_viewer",
+  "app_id": "03407034",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
