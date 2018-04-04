@@ -24,7 +24,7 @@ export class IntroductionPage {
   }
 
   goToLoginPage() {
-    this.navCtrl.push(RepositoriesPage);
+    this.navCtrl.setRoot(RepositoriesPage);
   }
 
 }
