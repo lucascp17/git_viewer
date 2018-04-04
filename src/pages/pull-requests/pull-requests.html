@@ -1,0 +1,76 @@
+<!--
+  Generated template for the PullRequestsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{repo.full_name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="laptop" item-start></ion-icon>
+      <strong>
+        Nome
+      </strong>
+      {{repo.name}}
+    </ion-item>
+    <ion-item>
+      <ion-icon name="contact" item-start></ion-icon>
+      <strong>
+        Autor
+      </strong>
+      {{repo.owner.login}}
+      <ion-img item-end src="{{repo.owner.avatar_url}}">
+      </ion-img>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="star" item-start></ion-icon>
+      <strong>
+        Estrelas
+      </strong>
+      {{repo.stargazers_count}}
+    </ion-item>
+    <ion-item>
+      <ion-icon name="shuffle" item-start></ion-icon>
+      <strong>
+        Forks
+      </strong>
+      {{repo.forks_count}}
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <h2>
+      Pull Requests <ion-icon name="arrow-down"></ion-icon>
+    </h2>
+  </ion-item>
+  <ion-card *ngFor="let pull of pulls" class="pull-card" (click)="openPullRequestPage(pull)">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{pull.user.avatar_url}}"/>
+      </ion-avatar>
+      <h2>
+        {{pull.user.login}}
+      </h2>
+      <p>
+        {{pull.created_at | date: 'dd MMM yyyy'}}
+      </p>
+    </ion-item>
+    <ion-card-header>
+      <strong>
+        {{pull.title}}
+      </strong>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        {{pull.body}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
